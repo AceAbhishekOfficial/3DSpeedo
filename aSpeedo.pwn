@@ -18,6 +18,7 @@ public OnFilterScriptInit()
 new PlayerSpeed[MAX_PLAYERS];
 new PlayerSpeedObject[MAX_PLAYERS];
 new PlayerSpeedObject2[MAX_PLAYERS];
+
 stock GetPlayerSpeedInt(playerid)
 {
 	new Float:svx, Float:svy, Float:svz;
@@ -39,17 +40,12 @@ public UpdateSpeedo(playerid)
 	SetTimerEx("UpdateSpeedo",SPEEDUPDATE,false,"i",playerid);
 	return 1;
 }
-public OnGameModeInit()
-{
-
-	return 1;
-}
-
 
 public OnPlayerConnect(playerid)
 {
 	PlayerSpeed[playerid]=1;
 	PlayerSpeedObject[playerid]=-1;
+	PlayerSpeedObject2[playerid]=-1;
 	return 1;
 }
 
