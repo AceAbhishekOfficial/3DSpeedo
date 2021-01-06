@@ -4,7 +4,7 @@
 #include <zcmd>
 
 #define COLOR_LIGHTGREEN 0x24FF0AB9
-
+#define SPEEDUPDATE 250 // <100 can make lag >500 doesn't looks good
 
 public OnFilterScriptInit()
 {
@@ -36,7 +36,7 @@ public UpdateSpeedo(playerid)
 	format(msg,sizeof(msg),"{24FF0A}%i{FFFFFF} km/h",spd);
 	SetPlayerObjectMaterialText(playerid,PlayerSpeedObject[playerid], msg, 0,  40, "Quartz MS", 30, 1, -13346097, 0, 2);
 	SetPlayerObjectMaterialText(playerid,PlayerSpeedObject2[playerid], msg, 0,  40, "Quartz MS", 30, 1, -13346097, 0, 1);
-	SetTimerEx("UpdateSpeedo",100,false,"i",playerid);
+	SetTimerEx("UpdateSpeedo",SPEEDUPDATE,false,"i",playerid);
 	return 1;
 }
 public OnGameModeInit()
