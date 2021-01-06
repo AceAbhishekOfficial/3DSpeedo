@@ -67,6 +67,7 @@ CMD:speedo(playerid,params[])
 		if(GetPlayerState(playerid)==PLAYER_STATE_DRIVER)		
 		{
 			UpdateSpeedo(playerid);
+			new vehid = GetPlayerVehicleID(playerid);
 			PlayerSpeedObject[playerid] =CreatePlayerObject(playerid, 19327,0.0,0.0,-1000.0,0.0,0.0,0.0,100.0);
 			SetPlayerObjectMaterial(playerid, PlayerSpeedObject[playerid], 0, 8487, "ballyswater", "waterclear256", 0x00000000);
 			PlayerSpeedObject2[playerid] =CreatePlayerObject(playerid, 19327,0.0,0.0,-1000.0,0.0,0.0,180.0,100.0);
@@ -76,6 +77,7 @@ CMD:speedo(playerid,params[])
 		return 1;
 
 	}
+	return 0;
 }
 
 public OnPlayerStateChange(playerid, newstate, oldstate)
@@ -88,6 +90,7 @@ public OnPlayerStateChange(playerid, newstate, oldstate)
 		SetPlayerObjectMaterial(playerid, PlayerSpeedObject[playerid], 0, 8487, "ballyswater", "waterclear256", 0x00000000);
 		PlayerSpeedObject2[playerid] =CreatePlayerObject(playerid, 19327,0.0,0.0,-1000.0,0.0,0.0,180.0,100.0);
 		SetPlayerObjectMaterial(playerid, PlayerSpeedObject2[playerid], 0, 8487, "ballyswater", "waterclear256", 0x00000000);
+		new vehid = GetPlayerVehicleID(playerid);
 		AttachSpeedBoard(playerid,vehid);
 	}
 	if(newstate != PLAYER_STATE_DRIVER)
